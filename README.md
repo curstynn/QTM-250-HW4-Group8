@@ -125,7 +125,11 @@ final.to_csv('final output.csv',index=False)
 
 The polarity output calculated by the Natural Language API has a range from -1 to 1, and it represents the difference between positive and negative attitudes in the text. Therefore, if the value is closer to -1, the attitude would be more negative; if the value is closer to 1, then the attitude would be more positive.
 
-We calculated the difference between sentiment values assigned by our group members and the polarity output assigned by the machine learning API. If the result is positive, it indicates that the API picks up more negativity than human does. If the result is negative, it indicates that the API picks up more positivity than human does. 
+We calculated the difference between sentiment values assigned by our group members and the polarity output assigned by the machine learning API:
+
+= (Human Sentiment Analysis - Machine Learning API Sentiment Analysis)
+
+If the result is positive, it indicates that the API picks up more negativity than human does. If the result is negative, it indicates that the API picks up more positivity than human does. 
 
 The graphs below were produced by Google Sheet. See link below for our final output.
 
@@ -134,17 +138,27 @@ The graphs below were produced by Google Sheet. See link below for our final out
 **Distribution of Difference between ML and Human Sentiment Analysis**
 <img src="https://docs.google.com/spreadsheets/d/e/2PACX-1vSqMJPB3fzpDPJkC9dXd6BVyS-U1NU-2vi1juzmAVdEDCwFttpYpaLFOiyTHkyJhXtw12-XvmmxJGEQ/pubchart?oid=8988792&format=image" width="600">
 
-Placeholder
+Based on the graph, we can see that there are slightly more comments with positive values than negative values, but most of the values are in the middle. To be specific, it indicates that over 40% of the results are concentrated in the center, with a value bewteen -0.2 to 0.25. Another 35% of the results have a value above 0.25, and the rest of the results are mainly less than 0. 
+
+With a bell shape, it can be concluded from the graph that the Natural Language API is generally accurate, since most of the differences between the values provided by ML and human are close to 0. However, we can also see a large proportion of the results with an absolute difference value larger than 0.5, which could potentially mean that there are still plenty of differences between human and machine learning sentiment analyses, in either direction. Since the difference was calculated by human analysis - machine learning API analysis, positive values indicate that machine learning API picks up more negativity than human does, and vice versa. As we can see, 35% of all values are above 0.25, which suggests that the API tends to recognise negative sentiments in the comments more than our group members. One possible explanation for this observation is that it might be easier for the API algorithm to pick up vocabularies that are more negative, such as negations, negative adjectives, and curses, while many positive comments might seem to be more neutral and harder for the API to pick up sentiments.
 
 **Difference between ML and Human Sentiment Analysis vs. Length of Comments**
 <img src="https://docs.google.com/spreadsheets/d/e/2PACX-1vSqMJPB3fzpDPJkC9dXd6BVyS-U1NU-2vi1juzmAVdEDCwFttpYpaLFOiyTHkyJhXtw12-XvmmxJGEQ/pubchart?oid=1387780684&format=image" width="600">
 
-Placeholder
+Given length of text as a variable, the API can still accurately analyze the sentiment of comments, at least not totally opposite, because most of the datapoints are scattered between 1 and -1. 
+
+Regardless of the length of comments, we can see that there are more positive values above the line of "Difference = 0" than negative values below, indicating the same conclusion we drew from the first graph that machine learning API picks up more negativity. However, as length of comments increases, the difference values are more scattered between 1 and -1 (but not heavily skewed in one direction), unlike many datapoints with 0 difference in shorter comments. Therefore, we can also conclude that the length of comment may somewhat affect accuracy of the API analysis, and more emotions included in longer text might potentially be a factor that confuses the machine learning.
 
 **Difference between ML and Human Sentiment Analysis vs. Presence of Slang in Comments**
 <img src="https://docs.google.com/spreadsheets/d/e/2PACX-1vSqMJPB3fzpDPJkC9dXd6BVyS-U1NU-2vi1juzmAVdEDCwFttpYpaLFOiyTHkyJhXtw12-XvmmxJGEQ/pubchart?oid=1070952019&format=image">
 
-Placeholder
+The boxplot above depicts the difference in sentiment analysis conducted by the researchers and the API for the two types of posts: posts with slang and posts without. The larger box on the right suggests a much larger discrepancy in the researchers’ and machine’s sentiment analysis for the posts with slang. This means that the machine had a much harder time understanding the emotion of comments that used slang, and often misidentified the positive, negative, or neutral qualities of posts. The smaller box on the left suggests that when analyzing the sentiment of comments without slang, the machine is more spot-on, giving a similar assessment to that of the researchers. We can therefore conclude that the presence of slang in a post could be a hidden variable that affects the output, perhaps adversely, of the API’s analysis. 
+
+## Conclusion
+
+Thanks to the ingenuity - or perhaps stupidity - of bodybuilders and their outlandish vernacular, we can conclude that our hypothesis was supported. According to our testing, length of a post and the presence of slangs are both hidden variables that can decrease the accuracy of Google’s Natural Language API. Ultimately, it seems that the Cloud’s sophisticated text analysis tool isn’t as smart as we may have assumed. Maybe it should try bodybuilding!
+
+Some limitations of our study include the fact that we did not include an equal amount of long and short posts within the dataset. This may have prevented us from getting the best conclusion whether the machine did better on analyzing long or short posts. Limitations also include the fact that the researchers only determined the positivity, negativity and neutrality of comments with the values 1, -1, and 0. The machine, on the other hand, can assess valence with every value between -1 and 1. This discrepancy may also lead to some inaccuracy in our analysis. If replicated, these limitations should be controlled for. 
 
 ## Architectural Diagram
 
