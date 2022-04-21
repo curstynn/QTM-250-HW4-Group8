@@ -142,7 +142,7 @@ Placeholder
 Placeholder
 
 **Difference between ML and Human Sentiment Analysis vs. Presence of Slang in Comments**
-<img src="https://docs.google.com/spreadsheets/d/e/2PACX-1vSqMJPB3fzpDPJkC9dXd6BVyS-U1NU-2vi1juzmAVdEDCwFttpYpaLFOiyTHkyJhXtw12-XvmmxJGEQ/pubchart?oid=1622627444&format=image" width="600">
+<img src="https://docs.google.com/spreadsheets/d/e/2PACX-1vSqMJPB3fzpDPJkC9dXd6BVyS-U1NU-2vi1juzmAVdEDCwFttpYpaLFOiyTHkyJhXtw12-XvmmxJGEQ/pubchart?oid=1070952019&format=image">
 
 Placeholder
 
